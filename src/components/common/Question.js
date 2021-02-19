@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { ReactComponent as QuestionIcon } from "../../question-solid.svg";
 
 function Question(props) {
-  const [inpVal, setInpVal] = useState("");
+  let inpVal = props.inpVal;
+  let setInpVal = props.setInpVal;
 
   function handleChange(e) {
-    setInpVal(e.target.value);
+    let newList = [...inpVal];
+    newList[newList.length - 1].question = e.target.value;
+    setInpVal(newList);
   }
 
   return (
@@ -14,7 +17,7 @@ function Question(props) {
       <input
         type="text"
         placeholder="Enter a question"
-        value={inpVal}
+        value={inpVal[inpVal.length - 1].question}
         onChange={handleChange}
         className="questionTxtBox"
       ></input>

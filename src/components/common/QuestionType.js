@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import MultiSelect from "../multi-select/MultiSelect";
 import SingleSelect from "../single-select/SingleSelect";
 
 function QuestionType(props) {
-  const [selectedQstType, setSelectedQstType] = useState("");
+  let inpVal = props.inpVal;
+  let setInpVal = props.setInpVal;
 
   let element;
-  switch (selectedQstType) {
+
+  switch (inpVal[inpVal.length - 1].quesType) {
     case "multi-select":
-      element = <MultiSelect qsttype={selectedQstType}></MultiSelect>;
+      element = (
+        <MultiSelect inpVal={inpVal} setInpVal={setInpVal}></MultiSelect>
+      );
       break;
 
     case "single-select":
-      element = <SingleSelect qsttype={selectedQstType}></SingleSelect>;
+      element = (
+        <SingleSelect inpVal={inpVal} setInpVal={setInpVal}></SingleSelect>
+      );
       break;
 
     default:
@@ -20,7 +26,10 @@ function QuestionType(props) {
   }
 
   function qstTypeChange(e) {
-    setSelectedQstType(e.target.value);
+    let newList = [...inpVal];
+    newList[e.target.id].id = e.target.id;
+    newList[e.target.id].quesType = e.target.value;
+    setInpVal(newList);
   }
 
   return (
@@ -29,6 +38,7 @@ function QuestionType(props) {
         className="drop-select"
         onChange={qstTypeChange}
         defaultValue="not-selected"
+        id={inpVal.length - 1}
       >
         <option className="drop-option" value="multi-select">
           multi-select

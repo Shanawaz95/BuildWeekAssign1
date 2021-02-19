@@ -1,39 +1,50 @@
 import React, { useState } from "react";
-import ButtonHolder from "../buttonHolder/ButtonHolder";
+import ButtonHolder from "../holder/ButtonHolder";
 
 function Options(props) {
-  const [inputList, setInputList] = useState([""]);
+  let inpVal = props.inpVal;
+  let setInpVal = props.setInpVal;
 
   function handleInput(e) {
-    let newList = [...inputList];
-    newList[e.target.id] = e.target.value;
-    setInputList(newList);
+    let newList = [...inpVal];
+    newList[newList.length - 1].answers[e.target.id] = e.target.value;
+    setInpVal(newList);
   }
 
   function increment() {
-    setInputList([...inputList, ""]);
+    let newList = [...inpVal];
+    newList[newList.length - 1].answers.push("");
+    setInpVal(newList);
   }
 
   function decrement(index) {
-    let newList = [...inputList];
-    newList.splice(index, 1);
-    newList.length != 0 ? setInputList(newList) : setInputList(inputList);
+    let newList = [...inpVal];
+    newList[newList.length - 1].answers.splice(index, 1);
+    newList[newList.length - 1].answers.length != 0
+      ? setInpVal(newList)
+      : setInpVal(inpVal);
   }
 
   function conditionalAddBtn() {
-    console.log(props.qsttype == "multi-select" && inputList.length >= 4);
-    if (props.qsttype == "multi-select" && inputList.length >= 4) {
-      return <ButtonHolder></ButtonHolder>;
-    } else if (props.qsttype == "single-select") {
-      return <ButtonHolder></ButtonHolder>;
+    if (
+      inpVal[inpVal.length - 1].quesType == "multi-select" &&
+      inpVal[inpVal.length - 1].answers.length >= 4
+    ) {
+      return (
+        <ButtonHolder inpVal={inpVal} setInpVal={setInpVal}></ButtonHolder>
+      );
+    } else if (inpVal[inpVal.length - 1].quesType == "single-select") {
+      return (
+        <ButtonHolder inpVal={inpVal} setInpVal={setInpVal}></ButtonHolder>
+      );
     }
   }
 
   return (
     <div>
       <p className="options">Options</p>
-      {props.qsttype == "multi-select" ? (
-        inputList.map((val, idx) => {
+      {inpVal[inpVal.length - 1].quesType == "multi-select" ? (
+        inpVal[inpVal.length - 1].answers.map((val, idx) => {
           return (
             <div className="optContainer" key={idx}>
               <input
@@ -61,7 +72,7 @@ function Options(props) {
               type="text"
               placeholder="Type answer here"
               id={0}
-              value={inputList[0]}
+              value={inpVal[inpVal.length - 1].answers[0]}
               onChange={handleInput}
               className="answerInput"
             ></input>
@@ -74,7 +85,7 @@ function Options(props) {
               type="text"
               placeholder="Type answer here"
               id={1}
-              value={inputList[1]}
+              value={inpVal[inpVal.length - 1].answers[1]}
               onChange={handleInput}
               className="answerInput"
             ></input>
