@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import QuestionType from "./QuestionType";
+import React, { useState } from "react";
 
 function AddButton(props) {
-  const [clicked, setClicked] = useState(false);
+  const setClicked = props.props;
 
   function handleAddClick() {
     setClicked(true);
@@ -10,9 +9,9 @@ function AddButton(props) {
 
   return (
     <div>
-      <button onClick={handleAddClick}>Add Question</button>
-      <br></br>
-      {clicked ? <QuestionType></QuestionType> : null}
+      <button className="addBtn" onClick={handleAddClick}>
+        Add Question
+      </button>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ReactComponent as QuestionIcon } from "../../question-solid.svg";
 
 function Question(props) {
   const [inpVal, setInpVal] = useState("");
@@ -9,11 +10,13 @@ function Question(props) {
 
   return (
     <div>
+      <QuestionIcon className="qstIcon"></QuestionIcon>
       <input
         type="text"
         placeholder="Enter a question"
         value={inpVal}
         onChange={handleChange}
+        className="questionTxtBox"
       ></input>
     </div>
   );

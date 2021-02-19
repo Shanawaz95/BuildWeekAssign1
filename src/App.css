@@ -9,3 +9,114 @@
   color: green;
   font-style: italic;
 }
+
+.createBtn {
+  text-align: center;
+}
+
+.createBtn > button {
+  margin: 20px;
+  padding: 5px;
+  background-color: rgb(221, 110, 6);
+  color: white;
+  font-size: larger;
+}
+
+.clickHide {
+  display: none;
+}
+
+.drop-select {
+  background-color: rgb(221, 216, 216);
+  margin: 0px 50px 50px 50px;
+  padding: 5px;
+  font-weight: 650;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.drop-option {
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.questionTxtBox {
+  width: 300px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left-style: none;
+  border: 1px solid rgb(221, 216, 216);
+  padding: 2px;
+  /* background-image: url(./question-solid.svg);
+  background-repeat: no-repeat; */
+}
+
+.qstIcon {
+  height: 30px;
+  width: 30px;
+  background-color: rgb(221, 216, 216);
+  position: relative;
+  padding: 5px;
+  border: 1px solid rgb(221, 216, 216);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.options {
+  position: relative;
+  right: 150px;
+  margin: 20px;
+  font-weight: 500;
+}
+
+.answerInput {
+  position: relative;
+  width: 280px;
+  border: 1px solid rgb(221, 216, 216);
+  padding: 2px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.optContainer {
+  margin-bottom: 20px;
+}
+
+.btn-inc {
+  position: relative;
+  width: 30px;
+  border: 1px solid rgb(221, 216, 216);
+  font-size: large;
+  font-weight: 700;
+  border-right-style: none;
+  color: rgb(221, 110, 6);
+  text-align: center;
+  border-left-style: none;
+}
+
+.btn-dec {
+  position: relative;
+  width: 30px;
+  border: 1px solid rgb(221, 216, 216);
+  font-size: large;
+  font-weight: 700;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left-style: none;
+  color: rgb(221, 110, 6);
+  text-align: center;
+}
+
+.addBtn {
+  background-color: rgb(221, 110, 6);
+  border-style: none;
+  height: 35px;
+  width: 125px;
+  color: white;
+  font-weight: 600;
+  margin: 20px;
+  display: inline-block;
+}

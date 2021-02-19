@@ -25,9 +25,17 @@ function QuestionType(props) {
 
   return (
     <>
-      <select onChange={qstTypeChange} defaultValue="not-selected">
-        <option value="multi-select">multi-select</option>
-        <option value="single-select">single-select</option>
+      <select
+        className="drop-select"
+        onChange={qstTypeChange}
+        defaultValue="not-selected"
+      >
+        <option className="drop-option" value="multi-select">
+          multi-select
+        </option>
+        <option className="drop-option" value="single-select">
+          single-select
+        </option>
         <option style={{ display: "none" }} disabled value="not-selected">
           Select question type
         </option>
